@@ -1,0 +1,113 @@
+* {
+  /* 常规初始化 */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #000;
+
+}
+.context {
+  /* 常规居中显示 */
+  display: flex;
+  margin: 30px auto;
+  /* justify-content:space-between; */
+  flex-wrap: wrap;
+  align-items: stretch;
+  overflow: hidden;
+  gap: 30px 9%;
+  width: 80%;
+  min-width:1vh;
+  /* flex:1; */
+  /* flex-basis:calc(100% / 3); */
+  background-color: #000;
+  
+}
+
+.context a {
+  overflow: hidden;
+  border-radius: 5px;
+  color: #66ddf7;
+  width:18%;
+  /* min-width:200px; */
+  /* font-size: 3vmin; */
+  text-align: center;
+  position: relative;
+  z-index: 0;
+  background-color: #22292f;
+  text-decoration: none;
+}
+
+.box img{
+  width: 100%;
+}
+.box span{
+  display: block;
+  padding: 10px 10px 15px 10px;
+}
+.box::before {
+  content: "";
+  /* 宽高要超过父级默认的大小 */
+  width: 200%;
+  height: 200%;
+  /* 基础背景颜色 */
+  background-color: #22292f;
+  /* conic-gradient 围绕中心点旋转的渐变 */
+  background-image: conic-gradient(transparent, #66ddf7, transparent 30%);
+
+  /* 定位到中间 */
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  /* 显示层级最底层 */
+  z-index: -2;
+
+  /* 旋转整个灯光渐变这一层 */
+  animation: rotate 5s linear infinite;
+
+  display: none;
+}
+/* .box.active:before{
+  display: block;
+} */
+.box.active:before,.box:hover:before{
+  display: block;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.box::after {
+  content: "";
+  inset: 2px;
+  background: #171718;
+  border-radius: 3vmin;
+  position: absolute;
+  z-index: -1;
+}
+
+@media screen and (max-width:426px) {
+
+
+  .context {
+    /* 常规居中显示 */
+    justify-content: center;
+    
+  }
+}
+@media screen and (max-width:769px) {
+  .box {
+    min-width:200px;
+  }
+  .context {
+    /* 常规居中显示 */
+    /* justify-content: center; */
+    gap: 30px 34%;;
+  }
+  
+
+  
+}
